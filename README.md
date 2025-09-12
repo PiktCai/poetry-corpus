@@ -43,4 +43,4 @@
 
 ## 友链
 
-[诗歌 WIKI](https://poemwiki.org/) | [读首诗再睡觉](https://bedtimepoem.com/) | [新诗馆](http://www.poeting.cn/)
+[诗歌 WIKI](https://poemwiki.org/) | [读首诗再睡觉](https://bedtimepoem.com/) | [新诗馆](http://www.poeting.cn/) | [飞象界](https://www.douban.com/people/258898442)
