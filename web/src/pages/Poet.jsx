@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useSearchParams } from 'react-router-dom';
 
 const Poet = () => {
   const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [poet, setPoet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentPoemIndex, setCurrentPoemIndex] = useState(0);
@@ -24,10 +25,10 @@ const Poet = () => {
         setPoet(data);
         setLoading(false);
 
-        // Check for hash to set initial poem
-        const hash = window.location.hash;
-        if (hash && hash.startsWith('#poem-')) {
-          const index = parseInt(hash.replace('#poem-', ''), 10);
+        // Check for query param to set initial poem
+        const poemIdParam = searchParams.get('poemId');
+        if (poemIdParam) {
+          const index = parseInt(poemIdParam, 10);
           if (!isNaN(index) && index >= 0 && index < data.poems.length) {
             setCurrentPoemIndex(index);
           }
@@ -37,18 +38,18 @@ const Poet = () => {
         console.error(err);
         setLoading(false);
       });
-  }, [id]);
+  }, [id]); // Removed searchParams from dependency to avoid double fetch on param change
 
-  // Sync URL hash with current index
+  // Sync URL query param with current index
   useEffect(() => {
     if (poet) {
-      window.history.replaceState(null, '', `#poem-${currentPoemIndex}`);
+      setSearchParams({ poemId: currentPoemIndex }, { replace: true });
       window.scrollTo(0, 0); // Scroll to top when poem changes
       // Reset statuses on page change
       setCopyStatus('idle');
       setShareStatus('idle');
     }
-  }, [poet, currentPoemIndex]);
+  }, [poet, currentPoemIndex, setSearchParams]);
 
   // Keyboard Navigation
   useEffect(() => {

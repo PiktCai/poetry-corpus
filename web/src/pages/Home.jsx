@@ -93,7 +93,7 @@ const Home = () => {
         .then(data => {
           if (data.poems && data.poems.length > 0) {
             const randomPoemIndex = Math.floor(Math.random() * data.poems.length);
-            navigate(`/poet/${randomPoetId}#poem-${randomPoemIndex}`);
+            navigate(`/poet/${randomPoetId}?poemId=${randomPoemIndex}`);
           } else {
             navigate(`/poet/${randomPoetId}`);
           }
@@ -176,7 +176,7 @@ const Home = () => {
                     const refProps = (index === displayedPoems.length - 1) ? { ref: lastElementRef } : {};
 
                     return (
-                      <Link {...refProps} key={key} to={`/poet/${poem.i}#poem-${poem.x}`} className="poem-item">
+                      <Link {...refProps} key={key} to={`/poet/${poem.i}?poemId=${poem.x}`} className="poem-item">
                         <span className="poem-title">{poem.t}</span>
                         <span className="poem-author">{poem.p}</span>
                       </Link>
