@@ -15,7 +15,7 @@ const Poet = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/data/poets/${id}.json`)
+    fetch(`${import.meta.env.BASE_URL}data/poets/${id}.json`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to load');
         return res.json();

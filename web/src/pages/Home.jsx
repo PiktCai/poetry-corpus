@@ -15,8 +15,8 @@ const Home = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch('/poets.json').then(res => res.json()),
-      fetch('/poems.json').then(res => res.json())
+      fetch(`${import.meta.env.BASE_URL}poets.json`).then(res => res.json()),
+      fetch(`${import.meta.env.BASE_URL}poems.json`).then(res => res.json())
     ])
       .then(([poetsData, poemsData]) => {
         setPoets(poetsData);
@@ -88,7 +88,7 @@ const Home = () => {
       const randomPoet = poets[Math.floor(Math.random() * poets.length)];
       setLoading(true);
       const randomPoetId = randomPoet.id;
-      fetch(`/data/poets/${randomPoetId}.json`)
+      fetch(`${import.meta.env.BASE_URL}data/poets/${randomPoetId}.json`)
         .then(res => res.json())
         .then(data => {
           if (data.poems && data.poems.length > 0) {
