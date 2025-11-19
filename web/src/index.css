@@ -1,0 +1,157 @@
+:root {
+  /* Zen Minimalist Theme - Paper & Ink */
+
+  /* Light Theme - Rice Paper & Ink */
+  --bg-paper: #F9F7F3;
+  --text-ink: #2c2c2c;
+  --text-ink-light: #595959;
+  --accent-red: #B3261E;
+  /* Chinese Seal Red */
+  --border-ink: rgba(44, 44, 44, 0.1);
+  --hover-ink: rgba(44, 44, 44, 0.05);
+
+  /* Typography */
+  --font-serif: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+:root[data-theme='dark'] {
+  --bg-paper: #333333;
+  /* Lighter dark gray per user request */
+  --text-ink: #e6e6e6;
+  --text-ink-light: #a0a0a0;
+  --accent-red: #CF6679;
+  --border-ink: #4d4d4d;
+  --hover-ink: #404040;
+}
+
+/* Reset & Base */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.8;
+}
+
+/* Utility Classes */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-red);
+}
+
+/* Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  padding: 2rem 0;
+  text-align: center;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.header-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  writing-mode: horizontal-tb;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+  box-sizing: border-box;
+}
+
+.footer {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--text-ink-light);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Buttons */
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--text-ink);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  background-color: var(--hover-ink);
+  color: var(--accent-red);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-ink);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-ink-light);
+}
