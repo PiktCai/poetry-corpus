@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Poet from './pages/Poet';
 
@@ -54,7 +54,7 @@ function Layout() {
 
 function App() {
     return (
-        <Router basename="/poetry-corpus">
+        <Router>
             <Layout />
         </Router>
     );
