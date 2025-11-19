@@ -54,7 +54,7 @@ function Layout() {
 
 function App() {
     return (
-        <Router>
+        <Router basename="/poetry-corpus">
             <Layout />
         </Router>
     );
